@@ -1,0 +1,81 @@
+#include <stdio.h>
+
+int binsearch(int n, int v[], int c){
+    int inicio=0;
+    int fim=n-1;
+    int meio;
+    for(int i=inicio; i <= fim; i++) {
+        meio=(inicio+fim)/2;
+        if (c>v[meio]){
+            inicio=meio;
+        }
+        else if(c==v[meio]){
+            printf("O item buscado esta na posicao %d",meio+1);
+            return 0;
+        }
+        else{
+            fim=meio;
+        }
+    }
+    printf("O item buscado não esta na lista!");
+    return 0;
+}
+
+int selsearch(int n, int v[], int c){
+    int i;
+    for(i=0;i<n;i++){
+        if(v[i]==c){
+            printf("O item buscado esta na posicao %d",i+1);
+            return 0;
+        }
+    }
+    printf("O item buscado não esta na lista!");
+    return 0;
+}
+
+
+void selection_Sort(int v[], int tam){
+    
+    int temp;
+    for(int i=0;i<tam;i++){
+      for(int j=i+1;j<tam;j++){
+         if(v[i]>v[j]){
+            temp=v[i];
+            v[i]=v[j];
+            v[j]=temp;
+         }
+      }
+   }
+    printf("Vetor ordenado pelo Selection Sort:\n");
+    for(int i=0;i<tam;i++){
+        printf("%d ",v[i]);
+    }
+}
+
+
+int main(){
+    int x,s,p;
+    int alg;
+    printf("Insira a quantidade de elementos: ");
+    scanf("%d", &x);
+    int vetor[x];
+    for(int i = 0;i<x;i++){
+        printf("Insira o elemento número %d ", i+1);
+        scanf("%d", &vetor[i]);}
+    for(int i = 0;i<x;i++){
+        printf("%d", vetor[i]);
+    }
+    printf("Digite 1 para Selection Sort, 2 para Bubble Sort");
+    scanf("%d",&alg);
+    if(alg == 1){
+        selection_Sort(vetor,x);
+    }
+    printf("Digite 1 para Search, 2 para Binary Search: ");
+    scanf("%d",&s);
+    if(s==1){
+        printf("Insira o valor buscado: ");
+        scanf("%d",&p);
+        selsearch(x,vetor,p);
+    }
+    else if(s==2){
+        printf("Insira o valor buscado: ");
