@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+void selection_Sort(int v[], int tam){
+    
+    int temp;
+    for(int i=0;i<tam;i++){
+      for(int j=i+1;j<tam;j++){
+         if(v[i]>v[j]){
+            temp=v[i];
+            v[i]=v[j];
+            v[j]=temp;
+         }
+      }
+   }
+    printf("Vetor ordenado pelo Selection Sort:\n");
+    for(int i=0;i<tam;i++){
+        printf("%d ",v[i]);
+    }
+}
+
+
+void 
+int main(){
+    int x;
+    int alg;
+    printf("Insira a quantidade de elementos: ");
+    scanf("%d", &x);
+    int vetor[x];
+    for(int i = 0;i<x;i++){
+        printf("Insira o elemento número %d ", i+1);
+        scanf("%d", &vetor[i]);}
+    for(int i = 0;i<x;i++){
+        printf("%d", vetor[i]);
+    }
+printf("Digite 1 para Selection Sort, 2 para Bubble Sort");
+scanf("%d",&alg);
+if(alg == 1){
+    selection_Sort(vetor,x);
+  }  
+  }
+
