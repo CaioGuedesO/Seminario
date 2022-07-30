@@ -1,0 +1,143 @@
+#include <stdio.h>
+
+int binarySearch(int n, int v[], int c){
+
+    int inicio=0;
+    int fim = n-1;
+    int meio;
+
+    for(int i=inicio; i <= fim; i++) {
+        meio = (inicio+fim)/2;
+
+        if (c>v[meio]){
+            inicio=meio;
+        }
+        else if(c==v[meio]){
+            printf("O item buscado esta na posicao %d",meio+1);
+            return 0;
+        }
+
+        else {
+            fim = meio;
+        }
+
+    }
+
+    printf("O item buscado não esta na lista!");
+    return 0;
+}
+
+int selectionSearch(int n, int v[], int c){
+    int i;
+
+    for(i=0;i<n;i++){
+        if(v[i]==c){
+            printf("O item buscado esta na posicao %d",i+1);
+            return 0;
+        }
+    }
+
+    printf("O item buscado não esta na lista!");
+    return 0;
+}
+
+
+void selectionSort(int v[], int tam){
+
+    int temp;
+    for(int i=0;i<tam;i++){
+      for(int j=i+1;j<tam;j++){
+         if(v[i]>v[j]){
+            temp=v[i];
+            v[i]=v[j];
+            v[j]=temp;
+         }
+      }
+   }
+    printf("Vetor ordenado pelo Selection Sort:\n");
+    for(int i=0;i<tam;i++){
+        printf("%d ",v[i]);
+    }
+}
+
+void insertionSort(int v[], int tam){
+    int temp;
+    int j;
+
+    for(int i=1;i<tam;i++){
+      temp=v[i];
+      j=i-1;
+
+      while((temp<v[j])&&(j>=0)){
+         v[j+1]=v[j];
+         j=j-1;
+      }
+
+      v[j+1]=temp;
+   }
+
+    for(int i=0;i<tam;i++){
+        printf("%d ",v[i]);
+    }
+}
+
+
+
+
+
+
+int main(){
+    int option;
+
+    printf("-=--=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n");
+    printf("1 - Preencher o vetor");
+    printf("2 - Buscar por um valor");
+    //printf("    a) binarySearch");
+    //printf("    b) selectionSearch");
+    printf("3 - Ordenar o vetor");
+    printf("    a) selectionSort");
+    printf("    b) insertionSort");
+    printf("-=--=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n");
+
+    
+    printf("Digite uma opção: ");
+    scanf("%d", &option);
+    int quantidade=0, vet[quantidade];
+    switch(option){
+        case 1:// preencher o vetor
+            int i;
+            printf("Digite a quantidade de elementos: ");
+            scanf("%d", &quantidade);
+            for(i=0; i<=quantidade, i++){
+                printf("Digite o elemento %d do vetor: ", i+1);
+                scanf("%d",vet[i]);
+            }//printar o vetor
+            for(i=0; i<=quantidade, i++){
+                printf("[%d]",vet[i]);
+            }
+            break;
+            
+        case 2:
+            char a;
+            printf("a) binarySearch");
+            printf("b) selectionSearch");
+            if (char==a){
+                int c;
+                printf("Insira o valor a ser procurado: ");
+                scanf("%d", c);
+                binarySearch(quantidade, vet, c);
+            }
+            if (char ==b){//selectionSearch(int n, int v[], int c)
+                int c;
+                printf("Insira o valor a ser procurado: ");
+                scanf("%d", c);
+                selectionSearch(quantidade, vet, n);
+            }
+            break;
+            
+        case 3:
+            printf("    a) selectionSort");
+            printf("    b) insertionSort");
+    }
+
+}
