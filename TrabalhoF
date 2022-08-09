@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define max 30
+#define max 99
 
 void readvet(int n,int v[]){
 	int i;
