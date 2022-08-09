@@ -103,7 +103,7 @@ int main(){
         scanf("%d",&vet[i]);
 	}
 	do{
-	    printf("\n-=--=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n");
+	    printf("\n-=--=--=--=--=--=--=--=--=--=--=--=--=--=--=-\n\n");
 	    printf("1 - Reescrever o vetor 		\n");
 	    printf("2 - Mostrar o vetor atual	\n");
 	    printf("3 - Buscar por um valor 	\n");
@@ -119,7 +119,7 @@ int main(){
 	        printf("\nInsira o tamanho do vetor: ");
 	        scanf("%d",&quant);
 	        for(i=0;i<quant;i++){
-	            printf("\nDigite o elemento %d do vetor: 	", i+1);
+	            printf("\nDigite o elemento %d do vetor: ", i+1);
 	            scanf("%d",&vet[i]);
 	    	}
 	    }
@@ -133,33 +133,33 @@ int main(){
 
 	    else if(option==3){
 	        int key;
-	        printf("Escolha o tipo de pesquisa: \n");
+	        printf("\nEscolha o tipo de pesquisa: \n\n");
 	        printf("1 - Binary Search  (O VETOR DEVE ESTAR ORDENADO!)\n");
-	        printf("2 - Selection Search		\n");
-	        printf("--> ");
+	        printf("2 - Selection Search \n");
+	        printf("\n--> ");
 	        scanf("%d",&key);
 
 	        if (key==1){
 	            int c;
-	            printf("Insira o valor a ser procurado: ");
+	            printf("\nInsira o valor a ser procurado: ");
 	            scanf("%d", &c);
 	            binarySearch(quant,vet,c);
 	            }
 
 	        else if (key==2){
 	            int c;
-	            printf("Insira o valor a ser procurado: ");
+	            printf("\nInsira o valor a ser procurado: ");
 	            scanf("%d",&c);
 	            selectionSearch(quant,vet,c);
 	            }
-	    }
+	    }  
 
 	    else if (option==4){
 	        int key2;
-	        printf("Escolha o tipo de ordenacao: 	\n");
+	        printf("\nEscolha o tipo de ordenacao: 	\n\n");
 	        printf("1 - Selection Sort				\n");
 	        printf("2 - Insertion Sort				\n");
-	        printf("--> ");
+	        printf("\n--> ");
 	        scanf("%d",&key2);
 	        if (key2==1){
 	            selectionSort(vet,quant);
